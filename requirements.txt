@@ -1,0 +1,10 @@
+streamlit
+numpy
+pandas
+yfinance
+scikit-learn
+tensorflow
+tf_keras
+scipy
+altair
+h5py
