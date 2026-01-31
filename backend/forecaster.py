@@ -364,15 +364,6 @@ def get_expected_returns(tickers: List[str], model_path: Optional[str] = None) -
     for ticker in tickers:
         if ticker in predictions:
             pred = predictions[ticker].get('predicted_return_22d')
-            if pred is not None:
-                # Annualize 22-day return (approximately 12 periods per year)
-                annualized = (1 + pred) ** 12 - 1
-                mu.append(annualized)
-            else:
-                # Fallback to historical return
-                hist = predictions[ticker].get('last_actual_return_22d', 0.0)
-                annualized = (1 + hist) ** 12 - 1
-                mu.append(annualized)
         else:
             mu.append(0.0)
 
